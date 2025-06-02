@@ -311,3 +311,137 @@ def stringSum(num1: str, num2: str) -> str:
     d = int(num2)
     return c + d
     pass
+
+
+# Linked List
+
+# Problem statement 1
+
+# You are given a Singly Linked List of integers with a head pointer. Every node of the Linked List has a value written on it.
+
+# A sample Linked List:
+
+# Now you have been given an integer value, 'K'. Your task is to check whether a node with a value equal to 'K' exists in the given linked list. Return 1 if node exists else return 0.
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1:
+# 3 6 2 7 9 -1
+# 2
+# Sample Output 1:
+# 1
+# Explanation for Sample Input 1:
+# As value 2 exists in the given linked list. So we will return 1 in this case.
+
+# Sample Input 2:
+# 1 2 3 7 -1
+# 7
+# Sample Output 2:
+# 1
+# Explanation for Sample Input 2:
+# As the value 7 exists in the Linked List, our answer is 1.
+
+# Expected Time Complexity:
+# Try solving this in O(L).
+
+# Constraints:
+# 1 <= 'L' <= 10^5
+# 1 <= 'data' <= 10^9 and 'data' != -1
+# 1 <= 'K' <= 10^9   
+
+# Where 'L' represents the total number of nodes in the Linked List, 'data' represents the value at each node, and 'K' is the given integer.
+
+# Time Limit: 1 sec.
+
+def searchInLinkedList(head, k):
+    # Your code goes here.
+    current = head
+    while current is not None:
+        if current.data == k:
+            return 1
+        current = current.next
+    return 0
+
+
+# Problem Statement 2
+
+# Given a singly linked list of 'N' nodes. The objective is to determine the middle node of a singly linked list. However, if the list has an even number of nodes, we return the second middle node.
+
+# Note:
+# 1. If the list is empty, the function immediately returns None because there is no middle node to find.
+# 2. If the list has only one node, then the only node in the list is trivially the middle node, and the function returns that node.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1 :
+# 5
+# 1 2 3 4 5
+# Sample Output 1 :
+# 3 4 5
+# Explanation Of Sample Input 1 :
+
+# We can clearly see that there are 5 elements in the linked list therefore the middle node is the node with value '3'.
+# Sample Input 2 :
+# 6
+# 1 2 3 4 5 6
+# Sample Output 2 :
+# 4 5 6
+# Explanation Of Sample Input 2 :
+
+# We can clearly see that there are 6 elements in the linked list and the middle nodes are  nodes with values 3 and 4 hence we return a second middle node having value '4'.
+# Constraints :
+# 1 <= 'N' <= 10^4
+# 0 <= 'data' <= 10^3 
+
+# Where 'N' is the length of the linked list.
+
+# Time Limit: 1 sec
+
+
+def findMiddle(head):
+    # Write your code here
+    # head denoted head of linked list
+    if not head:
+        return None
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
+    pass
+
+
+# Problem Statement 3
+
+# You are given a Singly Linked List of integers. You need to reverse the Linked List by changing the links between nodes.
+
+# Note :
+# You do not need to print anything, just return the head of the reversed linked list. 
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= 'N' <= 10^4
+# 0 <= 'data' <= 10^9
+
+# Where 'N' is the number of nodes in the linked list.
+
+# Time Limit: 1 sec
+# Sample Input 1 :
+# 1 2 4 -1
+# Sample Output 1 :
+# 4 2 1 -1
+# Explanation for Sample Input 1 :
+# 1->2->4 is the initial linked list. If we reverse this, we get 4->2->1.
+# Sample Input 2 :
+# 1
+# 1 1 1 -1
+# Sample Output 2 :
+# 1 1 1 -1
+
+def reverseLinkedList(head):
+    # write your code here
+    prev = None
+    current = head
+    while current:
+        next_node  = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev
