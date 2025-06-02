@@ -391,9 +391,7 @@ def searchInLinkedList(head, k):
 # 0 <= 'data' <= 10^3 
 
 # Where 'N' is the length of the linked list.
-
 # Time Limit: 1 sec
-
 
 def findMiddle(head):
     # Write your code here
@@ -406,7 +404,6 @@ def findMiddle(head):
         slow = slow.next
         fast = fast.next.next
     return slow
-    pass
 
 
 # Problem Statement 3
