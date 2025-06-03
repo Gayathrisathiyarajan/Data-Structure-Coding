@@ -442,3 +442,26 @@ def reverseLinkedList(head):
         prev = current
         current = next_node
     return prev
+
+
+# Stack
+
+stack = []
+
+# Push
+stack.append(10)
+stack.append(20)
+stack.append(30)
+print(stack)
+
+# Peek
+print(stack[-1])
+
+# Pop
+stack.pop()
+print(stack)
+
+# Check empty
+if not stack:
+    print("Stack is empty")
+
