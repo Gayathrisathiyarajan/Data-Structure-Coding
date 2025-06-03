@@ -465,3 +465,278 @@ print(stack)
 if not stack:
     print("Stack is empty")
 
+# Problem statement 1
+# Given valid mathematical expressions in the form of a string. You are supposed to return true if the given expression contains a pair of redundant brackets, else return false. The given string only contains ‘(‘, ’)’, ‘+’, ‘-’, ‘*’, ‘/’ and lowercase English letters.
+
+# Note :
+# A pair of brackets is said to be redundant when a subexpression is surrounded by needless/ useless brackets.
+
+# For Example :
+# ((a+b)) has a pair of redundant brackets. The pair of brackets on the first and last index is needless. 
+# While (a + (b*c)) does not have any pair of redundant brackets. 
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 50
+# 3 <= |S| <= 10^4
+
+# Time Limit: 1 sec
+# Sample Input 1 :
+# 2
+# (a+b)
+# (a+c*b)+(c))
+# Sample Output 1 :
+# No
+# Yes
+# Explanation of Sample Input 1 :
+# In the first test case, there are no redundant brackets. Hence, the output is “No”. 
+
+# In the second test case, the brackets around the alphabet ‘c’( index 8 and index 10) are redundant. Hence the output is “Yes”.
+# Sample Input 2 :
+# 2
+# (a*b+(c/d))
+# ((a/b))
+# Sample Output 2 :
+# No
+# Yes
+# Explanation of Sample Input 2 :
+# In the first test case, there are no redundant brackets. Hence, the output is “No”. 
+
+# In the second test case, the brackets around the subexpression “(a+b)” ( index 0 and index 6) are redundant. Hence the output is “Yes”.
+
+def findRedundantBrackets(s: str) -> bool:
+    stack = []
+    for ch in s:
+        if ch == ')':
+            top = stack.pop()
+            has_operator = False
+
+            while top != '(':
+                if top in "+-*/":
+                    has_operator = True
+                top = stack.pop()
+
+            if not has_operator:
+                return True
+        else:
+            stack.append(ch)
+    return False 
+
+
+# Problem Statement 2
+# You're given a string 'S' consisting of "{", "}", "(", ")", "[" and "]" .
+
+# Return true if the given string 'S' is balanced, else return false.
+
+# For example:
+# 'S' = "{}()".
+
+# There is always an opening brace before a closing brace i.e. '{' before '}', '(' before ').
+# So the 'S' is Balanced.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1 :
+# [()]{}{[()()]()}
+# Sample Output 1 :
+# Balanced
+# Explanation Of the Sample Input 1 :
+# There is always an opening brace before a closing brace i.e. '{' before '}', '(' before '), '[' before ']'.
+# So the 'S' is Balanced.
+# Sample Input 2 :
+# [[}[
+# Sample Output 2 :
+# Not Balanced
+# Constraints:
+# 1 <= 'N' <= 10^5
+
+# Where 'N' is the length of the input string 'S'.
+# Time Limit: 1 sec
+
+
+def isValidParenthesis(s: str) -> bool:
+    # Write your code here
+    stack = []
+    matching_bracket = {')': '(', '}': '{', ']': '['}
+
+    for char in s:
+        if char in "({[":
+            stack.append(char)
+        elif char in ")}]":
+            if not stack or stack[-1] != matching_bracket[char]:
+                return False
+            stack.pop()
+
+    return not stack
+
+
+
+# Queue
+from collections import deque  
+
+queue = deque() 
+
+# Enqueue
+queue.append("Gayu")
+queue.append("Gayathri")
+queue.append("Chitra")
+
+# Dequeue
+print(queue.popleft()) 
+
+# Peek
+print(queue[0]) 
+
+# Rear
+print(queue[-1])
+
+# Size
+print(len(queue))
+
+# Empty Check
+print(not queue)
+
+
+
+# Problem Statement 1
+
+# Design a data structure to implement deque of size ‘N’. It should support the following operations:
+
+# pushFront(X): Inserts an element X in the front of the deque. Returns true if the element is inserted, otherwise false.
+
+# pushRear(X): Inserts an element X in the back of the deque. Returns true if the element is inserted, otherwise false.
+
+# popFront(): Pops an element from the front of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+
+# popRear(): Pops an element from the back of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+
+# getFront(): Returns the first element of the deque. If the deque is empty, it returns -1.
+
+# getRear(): Returns the last element of the deque. If the deque is empty, it returns -1.
+
+# isEmpty(): Returns true if the deque is empty, otherwise false.
+
+# isFull(): Returns true if the deque is full, otherwise false.
+# Following types of queries denote these operations:
+
+# Type 1: for pushFront(X) operation.
+# Type 2: for pushRear(X) operation.
+# Type 3: for popFront() operation.
+# Type 4: for popRear() operation.
+# Type 5: for getFront() operation.
+# Type 6: for getRear() operation.
+# Type 7: for isEmpty() operation.
+# Type 8: for isFull() operation.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= N <= 1000
+# 1 <= Q <= 10^5 
+# 1 <= P <= 8
+# 1 <= X <= 10^5
+
+# Time Limit: 1 sec
+
+# Where ‘N’ represents the size of the deque, ‘Q’ represents the number of queries, ‘P’ represents the type of operation and ‘X’ represents the element.
+# Sample Input 1:
+# 5 7
+# 7
+# 1 10
+# 1 20
+# 2 30
+# 5
+# 4
+# 4
+# Sample Output 1:
+# True 
+# True 
+# True
+# True
+# 20
+# 30
+# 10
+# Explanation 1:
+# For the given input, we have the number of queries, Q = 7.
+# Operations performed on the deque are as follows:
+
+# isEmpty(): Deque is initially empty. So, this returns true.
+# pushFront(10): Insert the element ‘10’ in the front of the deque. This returns true.
+# pushFront(20): Insert the element ‘20’ in the front of the deque. This returns true.
+# pushRear(30): Insert the element ‘30’ in the back of the deque. This returns true.
+# getFront(): Returns the front element of the deque i.e. 20
+# popRear(): Pop an element from the back of the deque. This returns 30.
+# popRear(): Pop an element from the back of the deque. This returns 10.
+
+# The following image shows the snapshots of the deque after each operation:
+
+# Sample Input 2:
+# 2 5
+# 1 15
+# 2 25
+# 1 20
+# 8
+# 6
+# Sample Output 2:
+# True
+# True
+# False
+# True
+# 25
+
+
+class Deque:
+    def __init__(self, size):
+        # Write your code here
+        self.size = size
+        self.deque = []
+
+    # Pushes 'X' in the front of the deque. Returns true if it gets pushed into the deque, and false otherwise.
+    def pushFront(self, x):
+        # Write your code here
+        if len(self.deque) < self.size:
+            self.deque.insert(0, x)
+            return True
+        return False
+
+    # Pushes 'X' in the back of the deque. Returns true if it gets pushed into the deque, and false otherwise.
+    def pushRear(self, x):
+        # Write your code here
+        if len(self.deque) < self.size:
+            self.deque.append(x)
+            return True
+        return False
+
+    # Pops an element from the front of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+    def popFront(self):
+        # Write your code here
+        if self.deque:
+            return self.deque.pop(0)
+        return -1
+
+    # Pops an element from the back of the deque. Returns -1 if the deque is empty, otherwise returns the popped element.
+    def popRear(self):
+        # Write your code here
+        if self.deque:
+            return self.deque.pop()
+        return -1
+        
+
+    # Returns the first element of the deque. If the deque is empty, it returns -1.
+    def getFront(self):
+        # Write your code here
+        if self.deque:
+            return self.deque[0]
+        return -1
+
+    # Returns the last element of the deque. If the deque is empty, it returns -1.
+    def getRear(self):
+        # Write your code here
+        if self.deque:
+            return self.deque[-1]
+        return -1
+
+    # Returns true if the deque is empty. Otherwise returns false.
+    def isEmpty(self):
+        # Write your code here
+        return len(self.deque) == 0
+
+    # Returns true if the deque is full. Otherwise returns false.
+    def isFull(self):
+        # Write your code here
+        return len(self.deque) == self.size
