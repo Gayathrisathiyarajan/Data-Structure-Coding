@@ -749,3 +749,5 @@ queue.append(20)      # pushRear
 # Pop elements
 front = queue.popleft() if queue else -1
 rear = queue.pop() if queue else -1
+print("Front:", front)
+print("Rear:", rear)
