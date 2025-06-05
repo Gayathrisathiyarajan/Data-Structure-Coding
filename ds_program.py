@@ -740,3 +740,12 @@ class Deque:
     def isFull(self):
         # Write your code here
         return len(self.deque) == self.size
+
+
+# Push elements
+queue.appendleft(10)  # pushFront
+queue.append(20)      # pushRear
+
+# Pop elements
+front = queue.popleft() if queue else -1
+rear = queue.pop() if queue else -1
