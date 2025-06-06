@@ -763,3 +763,153 @@ def print_numbers(n):
     print_numbers(n + 1)  # recursion happens here
 
 print_numbers(1)
+
+
+# Problem Statement 1
+# You are given three rods (numbered 1 to 3), and ‘N’ disks initially placed on the first rod, one on top of each other in increasing order of size ( the largest disk is at the bottom). You are supposed to move the ‘N’ disks to another rod(either rod 2 or rod 3) using the following rules and in less than 2 ^ (N) moves.
+
+# 1. You can only move one disk in one move. 
+# 2. You can not place a larger disk on top of a smaller disk.
+# 3. You can only move the disk at the top of any rod.    
+# Note :
+# You may assume that initially, the size of the ‘i’th disk from the top of the stack is equal to ‘i’, i.e. the disk at the bottom has size ‘N’, the disk above that has size ‘N - 1’, and so on. The disk at the top has size 1.
+# Example :
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 5
+# 1 <= N <= 12
+
+# Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of disks.
+
+# Time Limit: 1 sec
+# Sample Input 1 :
+# 2
+# 1
+# 2
+# Sample Output 1 :
+# 1
+# 1
+# Explanation of Sample Input 1 :
+# In the first test case, 
+# you can move the only disk to either rod 2 or rod 3. The matrix to be returned should be either { { 1, 2 } } or { {1, 3 } }.
+
+# In the second test case, 
+# you can move the topmost disk from rod 1 to rod 2. Then move the remaining disk from rod1 to rod 3. Now move the disk in rod 2 to rod 3. . One of the correct ways to return the output is { { 1, 2 }, { 1, 3 }, { 2, 3 } }.  
+# Sample Input 2 :
+# 1
+# 3
+# Sample Output 2 :
+# 1
+# Explanation of Sample Input 2 :
+# One of the correct matrices is { { 1, 2 }, { 1, 3 }, { 2, 3 }, { 1, 2 }, { 3, 1 }, { 3, 2 }, { 1, 2 } }.
+
+def towerOfHanoi(n):
+    # Write your code here
+    # Return a 2-D array
+    result = []
+
+    def solve(n, source, destination, auxiliary):
+        if n == 0:
+            return
+        solve(n - 1, source, auxiliary, destination)
+        result.append([source, destination])
+        solve(n - 1, auxiliary, destination, source)
+    solve(n, 1, 3, 2)
+    return result
+
+
+# Problem Statement 2
+
+# Aakash is a member of Ninja club. He has a weird family structure. Every male member (M) gives birth to a male child first and then a female child, whereas every female (F) member gives birth to a female child first and then to a male child. Aakash analyses this pattern and wants to know what will be the Kth child in his Nth generation. Can you help him?
+
+# A sample generation tree is shown, where ‘M’ denotes the male member and ‘F’ denotes the female member. 
+
+# Note
+# The generation tree starts with a male member i.e. Aakash. 
+# Every member has exactly two children. 
+# The given N and K will always be valid. 
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1:
+# 2
+# 2 2 
+# 3 4  
+# Sample Output 1:
+# Female
+# Male
+# Explanation for Sample Input 1:
+# Test Case 1:  2nd child of the 2nd generation is shown in green colour. 
+
+# Test Case 2:  4th child of the 3rd generation is shown in green colour. 
+
+# Sample Input 2:
+# 3
+# 5 1 
+# 3 1
+# 4 4  
+# Sample Output 2:
+# Male
+# Male
+# Male 
+
+def checkGender(n,k):
+    # Write your code here
+    if n == 1 or k == 1:
+        return True
+    if k % 2 == 1:
+        return checkGender(n,(k+1)/2)
+    else:
+        return not checkGender(n,k/2)
+
+def kthChildNthGeneration(n, k):
+    if checkGender(n,k) == True:
+        return "Male"
+    else:
+        return "Female"
+    
+# Problem statement 3
+# Problem statement
+# You are given the first term (A), the common ratio (R) and an integer N. Your task is to find the Nth term of the GP series.
+
+# The general form of a GP(Geometric Progression) series is A, A(R), A(R^2), A*(R^3) and so on where A is the first term of GP series
+
+# Note :
+# As the answer can be large enough, return the answer modulo 10^9 + 7.
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 10
+# 1 <= N <= 10^8
+# 0 <= A <= 50 
+# 0 <= R <= 100
+
+# Time limit: 1 second
+# Sample input 1 :
+# 1
+# 5 3 2 
+# Sample output 1 :
+# 48
+# Explanation :
+# For N=5, A=3, and R=2. The GP series will be 3, 6, 12, 24, 48, and so on. Thus, the 5th term will be 48.  
+# Sample input 2 :
+# 2
+# 4 1 2
+# 6 2 1 
+# Sample output 2 :
+# 8
+# 2
+
+import sys
+from sys import stdin
+
+def nthTermOfGP(n, a, r):
+    #Write your code here
+    MOD = 10 ** 9 + 7
+    nth_term = (a * pow(r, n-1, MOD)) % MOD
+    return nth_term
+
+t = int(sys.stdin.readline().strip())
+while(t > 0):   
+    n, a, r = map(int,input().split())
+    print(nthTermOfGP(n,a,r))
+    t = t - 1
