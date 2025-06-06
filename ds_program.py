@@ -751,3 +751,15 @@ front = queue.popleft() if queue else -1
 rear = queue.pop() if queue else -1
 print("Front:", front)
 print("Rear:", rear)
+
+
+# Recursion Function
+
+# Print 1 to 5 using recursion
+def print_numbers(n):
+    if n > 5:
+        return
+    print(n)
+    print_numbers(n + 1)  # recursion happens here
+
+print_numbers(1)
