@@ -913,3 +913,112 @@ while(t > 0):
     n, a, r = map(int,input().split())
     print(nthTermOfGP(n,a,r))
     t = t - 1
+
+
+# Problem statement 4
+# Problem statement
+# You have given two positive integers N and K. Your task is to print a series of numbers i.e subtract K from N until it becomes 0 or negative then add K until it becomes N. You need to do this task without using any loop.
+
+# For Example:
+# For  N = 5 , K = 2 
+# Series = [ 5, 3, 1, -1, 1, 3, 5]
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 100   
+# 1 <= N <= 3000 
+# 1 <= K <= N 
+
+# Time Limit: 1sec
+# Sample Input 1 :
+# 2 
+# 3 2
+# 5 4
+# Sample Output 1 :
+# 3 1 -1 1 3
+# 5 1 -3 1 5
+# Explanation For Sample 1:
+# For the 1st test case:
+# The numbers in the sequence are 3, 3 - 2, 3 - 2 - 2, 3 - 2 - 2 + 2, 3 - 2 - 2 + 2 + 2, which is the same as 3, 1, -1, 1, 3. 
+
+# For the 2nd test case:
+# The numbers in the sequence are 5, 5 - 4, 5 - 4 - 4, 5 - 4 - 4 + 4, 5 - 4 - 4 + 4 + 4, which is the same as 5, 1, -3, 1, 5. 
+# Sample Input 2 :
+# 1
+# 4 2
+# Sample Output 2 :
+# 4 2 0 2 4
+
+def printSeriesHelper(current, n, k, down, result):
+    result.append(current)  
+    if current <= 0:
+        down = False  # Switch direction
+    if not down and current == n:
+        return
+    if down:
+        printSeriesHelper(current - k, n, k, down, result)
+    else:
+        printSeriesHelper(current + k, n, k, down, result)
+
+def printSeries(n, k):
+    result = []
+    printSeriesHelper(n, n, k, True, result)
+    return result  # ? Return the result instead of printing it
+
+
+# Problem statement 5
+# Problem statement
+# Given an integer array 'ARR' of size 'N' and an integer 'K', return all the subsets of 'ARR' which sum to 'K'.
+
+# Subset of an array 'ARR' is a tuple that can be obtained from 'ARR' by removing some (possibly all) elements of 'ARR'.
+
+# Note :
+# The order of subsets is not important. 
+
+# The order of elements in a particular subset should be in increasing order of the index.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= 'N' <= 16
+# - (10 ^ 6) <= ARR[i] <= (10 ^ 6)
+# - 16 * (10 ^ 6) <= 'K' <= 16 * (10 ^ 6)
+
+# Where ‘ARR[i]’ denotes the value for ‘ith’ element of the array ‘ARR’ and 'K' is the given sum.
+
+# Time Limit: 1 sec.
+# Sample Input 1:
+# 3
+# 2 4 6
+# 6
+# Sample Output 1:
+# 2 4
+# 6
+# Explanation of the Sample Input 1:
+# For the array'ARR' = {2, 4, 6}, we can have subsets {}, {2}, {4}, {6}, {2, 4}, {2, 6}, {4, 6}, {2, 4, 6}. Out of these 8 subsets, {2, 4} and {6} sum to the given 'K' i.e. 6. 
+# Sample Input 2:
+# 6 
+# 5 -1 8 2 7 0
+# 7
+# Sample Output 2:
+# -1 8 
+# -1 8 0 
+# 5 2 
+# 5 2 0 
+# 7 
+# 7 0 
+
+def findSubsetsHelper(arr, index, current_subset, current_sum, target, result):
+    # Base case
+    if index == len(arr):
+        if current_sum == target:
+            result.append(current_subset[:])  # store a copy of the valid subset
+        return
+    # Include current element
+    current_subset.append(arr[index])
+    findSubsetsHelper(arr, index + 1, current_subset, current_sum + arr[index], target, result)
+    # Exclude current element (backtrack)
+    current_subset.pop()
+    findSubsetsHelper(arr, index + 1, current_subset, current_sum, target, result)
+
+def findSubsetsThatSumToK(arr, n, k):
+    result = []
+    findSubsetsHelper(arr, 0, [], 0, k, result)
+    return result
