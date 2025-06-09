@@ -1022,3 +1022,6 @@ def findSubsetsThatSumToK(arr, n, k):
     result = []
     findSubsetsHelper(arr, 0, [], 0, k, result)
     return result
+
+
+# Recursion and Backtracking
