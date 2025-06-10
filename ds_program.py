@@ -1164,3 +1164,130 @@ def reverseLinkedList(head):
         curr = next_node
     return prev
 
+
+
+# Problem Statement 3
+
+# Problem statement
+# Given a source point (sx, sy) and a destination point (dx, dy), the task is to check if it is possible to reach the destination point using the following valid moves:
+
+# (a, b) -> (a + b, b)
+# (a, b) -> (a, a + b)
+# Your task is to find if it is possible to reach the destination point using only the desired moves or not.
+
+# For example:
+# For the coordinates, source point = (1, 1) and destination point = (3, 5)
+# The output will be true as the destination point can be reached using the following sequence of moves:
+# (1, 1) -> (1, 2) -> (3, 2) -> (3, 5)
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= T <= 100
+# 1 <= x, y <= 3000
+
+# Where ‘T’ is the number of test cases and ‘x’, ‘y’ are the coordinates of the given points.
+
+# Time Limit: 1sec
+# Sample Input 1:
+# 2
+# 1 1 3 5
+# 1 1 1 4
+# Sample Output 1:
+# True
+# True
+# Explanation For Sample Input 1:
+# For the first test case
+# The output will be true as destination point can be reached using the following sequence of moves:
+# (1, 1) -> (1, 2) -> (3, 2) -> (3, 5)
+
+# For the second test case
+# The output will be true as destination point can be reached using the following sequence of moves:
+# (1, 1) -> (1, 2) -> (1, 3) -> (1, 4)
+# Sample Input 2:
+# 2
+# 1 1 2 2
+# 1 1 1 1
+# Sample Output 2:
+# False
+# True
+
+def reachDestination(sx,sy,dx,dy):    
+    #Your code goes here
+    while dx >= sx and dy >= sy:
+        if dx == sx and dy == sy:
+            return True
+        if dx > dy:
+            dx -= dy
+        else:
+            dy -= dx
+    return False
+
+
+# Problrm Statement 4
+
+# Problem statement
+# You are given a 2-D matrix consisting of 0’s and 1’s with ‘N’ rows and ‘N’ columns, you are supposed to find all paths from the cell (0,0) (top-left cell) to the cell (N-1, N-1)(bottom-right cell). All cells with value 0 are blocked and cannot be travelled through while all cells with value 1 are open.
+
+# If you are currently at cell (x,y) then you can move to (x+1,y)(denoted by ‘D’), (x-1,y)(denoted by ‘U’), (x,y+1)(denoted by ‘R’), (x,y-1)(denoted by ‘L’) in one move. You cannot move out of the grid.
+
+# Example :
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 5
+# 1 <= N <= 5
+# 0 <= ARR[i][j] <= 1
+
+# Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of rows and columns of the given matrix, and ARR[i] denotes the value of the cell (i,j) in the given matrix.
+
+# Time Limit: 1 sec
+# Sample Input 1 :
+# 2
+# 2
+# 1 1
+# 1 1
+# 2
+# 1 0
+# 1 1
+# Sample Output 1 :
+# DR RD
+# DR
+# Explanation of Sample Input 1 :
+# In the first test case, there are two paths from (0,0) to (1,1). The first path is (0,0)->(1,0)->(1,1) and the second path is (0,0)->(0,1)->(1,1)
+
+# In the second test case, there is only one path since the cell at (0,1) is blocked. The path is (0,0)->(1,0)->(1,1).
+# Sample Input 2 :
+# 2
+# 3
+# 1 0 1
+# 1 0 0
+# 1 1 1
+# 3
+# 1 1 1
+# 1 0 1
+# 1 1 1
+# Sample Output 2 :
+# DDRR
+# DDRR RRDD
+# Explanation of Sample Input 2 :
+# In the first test case, there is only one path from (0,0) to (2,2). The path is (0,0)->(1,0)->(2,0)->(2,1)->(2,2).
+
+# In the second test case, there are two paths from (0,0) to (2,2). The first path is (0,0)->(1,0)->(2,0)->(2,1)->(2,2). and the second path is (0,0)->(0,1)->(0,2)->(1,2)->(2,2).
+
+def findAllPaths(arr):
+    # Write your code here
+    # Return all paths
+    def dfs(x, y, path):
+        if x == n - 1 and y == n - 1:
+            res.append(path)
+            return
+        vis[x][y] = True
+        for dx, dy, move in [(1,0,'D'), (0,-1,'L'), (0,1,'R'), (-1,0,'U')]:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < n and 0 <= ny < n and not vis[nx][ny] and arr[nx][ny]:
+                dfs(nx, ny, path + move)
+        vis[x][y] = False
+
+    n = len(arr)
+    res, vis = [], [[False]*n for _ in range(n)]
+    if arr[0][0]: dfs(0, 0, "")
+    return sorted(res)
