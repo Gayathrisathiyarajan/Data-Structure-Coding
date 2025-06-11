@@ -1350,3 +1350,115 @@ def nQueens(n):
     res = []
     solve(0, [], set(), set(), set())
     return res
+
+
+# Problem Statement 6
+# Problem statement
+# Given a string S containing digits from 2 to 9 inclusive. Your task is to find all possible letter combinations that the number could represent.
+
+# A mapping from Digits to Letters (just like in Nokia 1100) is shown below. Note that 1 does not map to any letter.
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= T <= 10 
+# 1 <= |S| <= 10 
+# 2 <= S[i] <=9  
+
+# Where |S| is the length of string 'S" and 'S[i]' represents the element of the string S. 
+
+# Time Limit: 1 sec
+# Sample Input 1:
+# 1 
+# 23
+# Sample Output 1:
+# ad ae af bd be bf cd ce cf
+# Explanation of sample input 1:
+# The letters corresponding to 2 are ‘a’, ‘b’, ‘c’ and corresponding to 3 are ‘d’, ‘e’, ‘f’. All the possible letter combinations for “23” will be "ad","ae","af","bd","be","bf","cd","ce","cf".
+# Sample Input 2:
+# 1
+# 2
+# Sample Output 2:
+# a b c
+# Explanation of sample input 2:
+# The letters corresponding to 2 are ‘a’, ‘b’, ‘c’.
+
+def combinations(s):
+    # Write your code here
+    if not s:
+        return []
+
+    digit_map = {
+        '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',
+        '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'
+    }
+
+    result = []
+
+    def backtrack(index, path):
+        if index == len(s):
+            result.append(path)
+            return
+        for char in digit_map[s[index]]:
+            backtrack(index + 1, path + char)
+
+    backtrack(0, "")
+    return result
+
+
+# Problem Statement 7
+
+# Problem statement
+# You are a coach of a group consisting of 'N' students. The ith student has a strength Arr[i]. For a Tug of War game, you want to divide students into two teams of equal size (If N is odd, then size of one team should be (N-1)/2 and size of other team should be (N+1)/2). You want a game that is fun, for this the absolute difference between the team’s strength should be as minimum as possible. A team's strength is the sum of the strengths of the students in the team.
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 1 <= T <= 10
+# 2 <= N <= 20
+# 0 < Arr[i] <= 10^5
+# Where T is the number of test cases, N is the number of students and Arr[i] is the strength of ith student.
+# Sample Input 1:
+# 3
+# 4
+# 1 2 3 4
+# 3
+# 4 2 1
+# 2
+# 6 8
+# Sample Output 1:
+# 0
+# 1
+# 2
+# Explanation for Sample Input 1:
+# In the 1st test case, the first team contains students with strength {1, 4} and the second team contains students with strength {2, 3}, the absolute difference between the team’s strength is (1+5)-(2+3)=0.
+
+# In the 2nd test case, the first team contains students with strength {1, 2} and the second team contains students with strength {4}, the absolute difference between the team’s strength is (4)-(1+2)=1.
+
+# In the 3rd test case, the first team contains students with strength {6} and the second team contains students with strength {8}, the absolute difference between the team’s strength is (8)-(6)=2.
+# Sample Input 2:
+# 2
+# 3
+# 10 10 10
+# 4
+# 10 1 2 5
+# Sample Output 2:
+# 10
+# 4
+
+def tugOfWar(arr, n):
+    # write your code here
+    total = sum(arr)
+    min_diff = [float('inf')]
+
+    def helper(i, team1, team2, sum1, sum2):
+        if i == n:
+            if abs(len(team1) - len(team2)) <= 1:
+                min_diff[0] = min(min_diff[0], abs(sum1 - sum2))
+            return
+        if len(team1) < (n + 1) // 2:
+            helper(i + 1, team1 + [arr[i]], team2, sum1 + arr[i], sum2)
+        if len(team2) < (n + 1) // 2:
+            helper(i + 1, team1, team2 + [arr[i]], sum1, sum2 + arr[i])
+
+    helper(0, [], [], 0, 0)
+    return min_diff[0]
+
