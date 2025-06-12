@@ -1632,3 +1632,102 @@ def reverseStack(stack: List[int]) -> None:
         x = stack.pop()
         reverseStack(stack)
         stack.insert(0, x)
+
+# Problem Statement 11 -   Closest Distance Pair.
+
+# Problem statement
+# You are given an array containing 'N' points in the plane. The task is to find out the distance of the closest points.
+
+# Note :
+# Where distance between two points (x1, y1) and (x2, y2) is calculated as [(x1 - x2) ^ 2] + [(y1 - y2) ^ 2].
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints :
+# 2 <= 'N' <= 10^5
+# -10^5 <= 'x' <= 10^5 
+# -10^5 <= 'y' <= 10^5
+
+# Time Limit: 1 sec
+# Sample Input 1:
+# 5
+# 1 2
+# 2 3
+# 3 4
+# 5 6
+# 2 1
+# Sample Output 1:
+# 2
+# Explanation of Sample Output 1:
+# We have 2 pairs which are probable answers (1, 2) with (2, 3) and (2, 3) with (3, 4). The distance between both of them is equal to 2.
+# Sample Input 2 :
+# 3
+# 0 0
+# -3 -4
+# 6 4
+# Sample Output 2 :
+# 25
+# Explanation of Sample Output 1 :
+# If we choose the pairs (0, 0) and (-3, -4), the distance between them is 3^2 + 4^2 = 25. This is the optimal answer for this test case.
+
+from sys import stdin, setrecursionlimit
+setrecursionlimit(10**7)
+
+class point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+def dist(p1, p2):
+    return (p1.x - p2.x)**2 + (p1.y - p2.y)**2
+
+def closest_util(px, py):
+    n = len(px)
+    if n <= 3:
+        min_d = float('inf')
+        for i in range(n):
+            for j in range(i + 1, n):
+                min_d = min(min_d, dist(px[i], px[j]))
+        return min_d
+
+    mid = n // 2
+    mid_point = px[mid]
+
+    pyl = list()
+    pyr = list()
+
+    for point in py:
+        if point.x < mid_point.x or (point.x == mid_point.x and point in px[:mid]):
+            pyl.append(point)
+        else:
+            pyr.append(point)
+
+    dl = closest_util(px[:mid], pyl)
+    dr = closest_util(px[mid:], pyr)
+    d = min(dl, dr)
+
+    strip = [p for p in py if abs(p.x - mid_point.x) < d]
+    min_d_strip = d
+    for i in range(len(strip)):
+        for j in range(i + 1, min(i + 7, len(strip))):
+            min_d_strip = min(min_d_strip, dist(strip[i], strip[j]))
+
+    return min_d_strip
+
+def closestPair(cordinates, n):
+    px = sorted(cordinates, key=lambda p: (p.x, p.y))
+    py = sorted(cordinates, key=lambda p: (p.y, p.x))
+    return closest_util(px, py)
+
+# Fast input
+def takeInput():
+    n = int(input().strip())
+    if n == 0:
+        return [], n
+    cordinates = [point(0, 0) for _ in range(n)]
+    for i in range(n):
+        arr = list(map(int, stdin.readline().strip().split()))
+        cordinates[i] = point(arr[0], arr[1])
+    return cordinates, n
+
+# main
+cordinates, n = takeInput()
+print(closestPair(cordinates, n))
