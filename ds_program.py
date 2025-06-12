@@ -1462,3 +1462,136 @@ def tugOfWar(arr, n):
     helper(0, [], [], 0, 0)
     return min_diff[0]
 
+
+# Problem Statement 8
+
+# Problem statement
+# You are given an array of integers "ARR" of length 'N' and an integer 'K'. Your task is to find whether or not you can divide the array "ARR" into 'K' subsets with equal sum.
+
+# A subset of an array "ARR" is another array whose every element is present in array "ARR".
+
+# For example:
+# If ARR = {1, 2, 3, 4}, then array {3,4} is a subset of "ARR" because both 3 and 4 are also elements of "ARR".
+# For example:
+
+# Consider array ARR = {3, 5, 2, 4, 4} and K = 2, i.e. you have to divide "ARR" into 2 subsets with equal sum. The division will be {4, 5} and {2, 3, 4} with sum 9.
+# Note:
+
+# Every element of the array must occupy only one subset.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1:
+# 3 
+# 5 2
+# 3 5 2 4 4
+# 9 6 
+# 1 9 6 8 6 9 9 9 9
+# 7 4
+# 4 4 4 1 1 1 1
+# Sample Output 1:
+# TRUE
+# FALSE
+# TRUE
+# Explanation For Sample Input 1:
+# For first case, 
+# Array can be divided into 2 subsets as {2, 3, 4} and {4, 5} with sum 9.
+
+# For the second case,
+# Array can not be divided into 6 subsets with equal sum.
+
+# For the third case, 
+# Array can be divided into 4 subsets as {4}, {4}, {4} and {1, 1, 1, 1} with sum 4.
+# Sample Input 2:
+# 5
+# 10 5
+# 1 2 3 4 5 6 7 8 9 10
+# 7 7
+# 7 7 7 7 7 7 7
+# 7 3
+# 1 2 3 4 5 6 7
+# 5 2
+# 3 5 7 11 13
+# 3 5
+# 1 2 3
+# Sample Output 2:
+# TRUE
+# TRUE
+# FALSE
+# FALSE
+# FALSE
+
+def splitArray(arr,k):
+    
+    total_sum = sum(arr)
+    n = len(arr)
+
+    if total_sum % k != 0:
+        return False
+
+    target = total_sum // k
+    used = [False] * n
+
+    def backtrack(start, k, curr_sum):
+        if k == 0:
+            return True
+        if curr_sum == target:
+            return backtrack(0, k - 1, 0)
+
+        for i in range(start, n):
+            if not used[i] and curr_sum + arr[i] <= target:
+                used[i] = True
+                if backtrack(i + 1, k, curr_sum + arr[i]):
+                    return True
+                used[i] = False
+        return False
+
+    arr.sort(reverse=True)  # optimization to help early pruning
+    return backtrack(0, k, 0)
+    return
+
+# Problem Statement 9 -  Binary strings with no consecutive 1s.
+
+# Problem statement
+# You have been given an integer 'N'. Your task is to generate and return all binary strings of length 'N' such that there are no consecutive 1's in the string.
+
+# A binary string is that string which contains only ‘0’ and ‘1’.
+
+# For Example:
+# Let ‘N'=3, hence the length of the binary string would be 3. 
+
+# We can have the following binary strings with no consecutive 1s:
+# 000 001 010 100 101 
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1:
+# 4
+# Sample Output 1:
+# 0000 0001 0010 0100 0101 1000 1001 1010 
+# Explanation of sample input 1:
+# For N = 4 we get the following Strings:
+
+# 0000 0001 0010 0100 0101 1000 1001 1010 
+
+# Note that none of the strings has consecutive 1s. Also, note that they are in a lexicographically increasing order.
+# Sample Input 2:
+# 2
+# Sample Output 2:
+# 00 01 10
+# Constraints:
+# 1 <= 'N' <= 20
+# Time limit: 1 second
+
+from typing import List
+
+def generateString(N: int) -> List[str]:
+    # write your code here
+    result = []
+    def backtrack(current: str, last_char: str):
+        if len(current) == N:
+            result.append(current)
+            return
+        # Always can add '0'
+        backtrack(current + '0', '0')
+        # Add '1' only if last character is not '1'
+        if last_char != '1':
+            backtrack(current + '1', '1')
+    backtrack("", '0')  # Start with empty string and last_char='0'
+    return result
