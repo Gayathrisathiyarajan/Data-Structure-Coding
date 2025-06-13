@@ -1731,3 +1731,53 @@ def takeInput():
 # main
 cordinates, n = takeInput()
 print(closestPair(cordinates, n))
+
+# Problem Statement 12 -   All Possible Permutations - String
+
+# Problem statement
+# You are given an input string 'S'. Your task is to find and return all possible permutations of the input string.
+
+# Note:
+# 1. The input string may contain the same characters, so there will also be the same permutations.
+
+# 2. The order of permutation does not matter.
+# Detailed explanation ( Input/output format, Notes, Images )
+# Sample Input 1:
+# cba
+# Sample Output 1:
+# abc
+# acb
+# bac
+# bca
+# cab
+# cba
+# Explanation for Sample Output 1:
+# All the possible permutations for string "cba" will be "abc", "acb", "bac", "bca", "cab" and "cba".
+# Sample Input 2:
+# xyx
+# Sample Output 2:
+# xyx
+# xxy
+# yxx
+# yxx
+# xyx
+# xxy
+# Explanation for Sample Output 2:
+# All the possible permutations for string "xyx" will be "xyx", "xxy", "yxx", "yxx", "xyx" and "xxy". Here, all three permutations "xyx", "yxx", "xxy" are repeating twice but we need to print all the possible permutations and hence we are printing them twice..
+
+def findPermutations(s):
+    def backtrack(path, used):
+        if len(path) == len(s):
+            result.append(''.join(path))
+            return
+        for i in range(len(s)):
+            if not used[i]:
+                used[i] = True
+                path.append(s[i])
+                backtrack(path, used)
+                path.pop()
+                used[i] = False
+
+    result = []
+    backtrack([], [False]*len(s))
+    return result
