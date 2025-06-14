@@ -1781,3 +1781,41 @@ def findPermutations(s):
     result = []
     backtrack([], [False]*len(s))
     return result
+
+# Problem Statement 12 - Generate Parentheses
+
+# Problem statement
+# Given N pairs of parentheses, write a function to generate and print all combinations of well-formed parentheses. That is, you need to generate all possible valid sets of parentheses that can be formed with a given number of pairs.
+
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= N <= 10
+
+# Time Limit: 1sec
+# Sample Input 1:
+# 3
+# Sample Output 1:
+# {{{}}}
+# {{}{}}
+# {{}}{}
+# {}{{}}
+# {}{}{}
+# Explanation For Sample Input 1:
+# These are the only five sequences of balanced parentheses formed using 3 pairs of balanced parentheses.
+# Sample Input 2:
+# 2
+# Sample Output 2:
+# {{}}
+# {}{}
+
+def printParantheses(n):
+    def helper(current, open_count, close_count, max_pairs):
+        if len(current) == max_pairs * 2:
+            print(current)
+            return
+        if open_count < max_pairs:
+            helper(current + '{', open_count + 1, close_count, max_pairs)
+        if close_count < open_count:
+            helper(current + '}', open_count, close_count + 1, max_pairs)
+
+    helper('', 0, 0, n)
