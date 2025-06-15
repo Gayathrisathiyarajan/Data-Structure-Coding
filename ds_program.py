@@ -1809,13 +1809,13 @@ def findPermutations(s):
 # {}{}
 
 def printParantheses(n):
-    def helper(current, open_count, close_count, max_pairs):
+    def Parantheses(current, open_count, close_count, max_pairs):
         if len(current) == max_pairs * 2:
             print(current)
             return
         if open_count < max_pairs:
-            helper(current + '{', open_count + 1, close_count, max_pairs)
+            Parantheses(current + '{', open_count + 1, close_count, max_pairs)
         if close_count < open_count:
-            helper(current + '}', open_count, close_count + 1, max_pairs)
+            Parantheses(current + '}', open_count, close_count + 1, max_pairs)
 
-    helper('', 0, 0, n)
+    Parantheses('', 0, 0, n)
