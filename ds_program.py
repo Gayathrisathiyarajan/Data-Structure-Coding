@@ -1819,3 +1819,75 @@ def printParantheses(n):
             Parantheses(current + '}', open_count, close_count + 1, max_pairs)
 
     Parantheses('', 0, 0, n)
+
+# Problem Statement 13 -  Restore IP Addresses
+
+# Problem statement
+# You are given a string 'S' containing only digits. Your task is to find all possible IP addresses that can be obtained from string 'S' in lexicographical order.
+
+# Note:
+# A valid IP address consists of exactly four integers, each integer is between 0 and 255 separated by single dots, and cannot have leading zeros except in the case of zero itself.
+# For example:
+# The following are valid IP addresses:
+# 0.1.24.255
+# 18.5.244.1
+
+# Following are invalid IP addresses:
+# 0.01.24.255  (as  01  contains one leading zero).
+# 18.312.244.1 (as 312 not lies between 0 and 255).
+# Detailed explanation ( Input/output format, Notes, Images )
+# Constraints:
+# 1 <= T <= 1000
+# 1 <= |S| <= 15
+
+# Where |'S'| denotes the length of string 'S' and 'S' contains only digits from 0 to 9.
+
+# Time Limit: 1 sec
+# Note:
+# You do not need to print anything, it has already been taken care of. Just implement the given function.
+# Sample Input 1 :
+# 2 
+# 2122
+# 23579
+# Sample Output 1 :
+# [“2.1.2.2”]
+# [“2.3.5.79”, “2.3.57.9”, “2.35.7.9”, “23.5.7.9”]
+# Explanation for sample Input 1:
+# For the first test case, there is only one possible IP address that is [2.1.2.2]
+
+# For the second test case, all possible IP addresses are shown below.
+# [2.3.5.79], [2.3.57.9], [2.35.7.9], [23.5.7.9]
+# Sample Input 2 :
+# 2
+# 123
+# 02300
+# Sample Output 2 :
+# []
+# [“0.2.30.0”, “0.23.0.0”]
+# Explanation for sample Input 2:
+# For the first test case, there is no possible IP address. Therefore then answer is []
+
+# For the second test case, there are only 2 possible IP addresses are shown below.
+# [0.2.30.0], [0.23.0.0]
+
+
+def generateIPAddress(s):
+    result = []
+    def isValid(part):
+        if len(part) > 1 and part[0] == '0':
+            return False
+        return 0 <= int(part) <= 255
+
+    def backtrack(start, path):
+        if len(path) == 4:
+            if start == len(s):
+                result.append('.'.join(path))
+            return
+        for length in range(1, 4):
+            if start + length <= len(s):
+                part = s[start:start + length]
+                if isValid(part):
+                    backtrack(start + length, path + [part])
+    backtrack(0, [])
+    result.sort()  # Lexicographical order
+    return result
