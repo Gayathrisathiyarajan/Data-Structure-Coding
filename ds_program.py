@@ -1974,7 +1974,7 @@ def subsequences(s):
 # Time Limit: 1sec
 
 def combSum(ARR, B):
-    def backtrack(start, target, path):
+    def CombinationSum(start, target, path):
         if target == 0:
             result.append(path[:])
             return
@@ -1982,10 +1982,10 @@ def combSum(ARR, B):
             if ARR[i] > target:
                 continue
             path.append(ARR[i])
-            backtrack(i, target - ARR[i], path)  # Reuse same element
+            CombinationSum(i, target - ARR[i], path)  # Reuse same element
             path.pop()
 
     ARR.sort()
     result = []
-    backtrack(0, B, [])
+    CombinationSum(0, B, [])
     return result
