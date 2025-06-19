@@ -1970,9 +1970,9 @@ def subsequences(s):
 # 1 <= 'N' <= 15
 # 1 <= 'B' <= 20
 # 1 <= 'ARR[i]' <= 20
-
 # Time Limit: 1sec
 
+# Solution
 def combSum(ARR, B):
     def CombinationSum(start, target, path):
         if target == 0:
