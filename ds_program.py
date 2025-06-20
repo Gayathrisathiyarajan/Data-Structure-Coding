@@ -1873,7 +1873,7 @@ def printParantheses(n):
 
 def generateIPAddress(s):
     result = []
-    def isValid(part):
+    def IPAddress(part):
         if len(part) > 1 and part[0] == '0':
             return False
         return 0 <= int(part) <= 255
@@ -1886,7 +1886,7 @@ def generateIPAddress(s):
         for length in range(1, 4):
             if start + length <= len(s):
                 part = s[start:start + length]
-                if isValid(part):
+                if IPAddress(part):
                     backtrack(start + length, path + [part])
     backtrack(0, [])
     result.sort()  # Lexicographical order
@@ -1989,3 +1989,4 @@ def combSum(ARR, B):
     result = []
     CombinationSum(0, B, [])
     return result
+
