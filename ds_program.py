@@ -1920,6 +1920,7 @@ def generateIPAddress(s):
 # Sample Output 2:
 # b b b bb bb bb bbb
 
+# Solution
 def subsequences(s):
     result = []
     def backtrack(index, path):
