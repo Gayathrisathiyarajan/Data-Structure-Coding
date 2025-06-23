@@ -2026,6 +2026,7 @@ def combSum(ARR, B):
 # Element '9' doesn't exist.
 # Hence, the answer is '-1'.
 
+# Solution
 def BinarySearch(nums: [int], target: int):
     left, right = 0, len(nums) - 1
     while left <= right:
