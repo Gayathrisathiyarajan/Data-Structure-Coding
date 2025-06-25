@@ -2039,3 +2039,4 @@ def BinarySearch(nums: [int], target: int):
             right = mid - 1 
     return -1 
 
+
