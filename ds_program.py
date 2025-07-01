@@ -1727,7 +1727,6 @@ def takeInput():
         arr = list(map(int, stdin.readline().strip().split()))
         cordinates[i] = point(arr[0], arr[1])
     return cordinates, n
-
 # main
 cordinates, n = takeInput()
 print(closestPair(cordinates, n))
@@ -1889,7 +1888,7 @@ def generateIPAddress(s):
                 if IPAddress(part):
                     backtrack(start + length, path + [part])
     backtrack(0, [])
-    result.sort()  # Lexicographical order
+    result.sort()
     return result
 
 # Problem Statement 14 -  Subsequences of String
@@ -2041,5 +2040,6 @@ def BinarySearch(nums: [int], target: int):
 
 
 # Sorting
+
 
 
