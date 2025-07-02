@@ -1590,7 +1590,6 @@ def generateString(N: int) -> List[str]:
             return
         # Always can add '0'
         backtrack(current + '0', '0')
-        # Add '1' only if last character is not '1'
         if last_char != '1':
             backtrack(current + '1', '1')
     backtrack("", '0')  # Start with empty string and last_char='0'
