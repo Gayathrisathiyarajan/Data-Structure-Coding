@@ -1274,8 +1274,6 @@ def reachDestination(sx,sy,dx,dy):
 # In the second test case, there are two paths from (0,0) to (2,2). The first path is (0,0)->(1,0)->(2,0)->(2,1)->(2,2). and the second path is (0,0)->(0,1)->(0,2)->(1,2)->(2,2).
 
 def findAllPaths(arr):
-    # Write your code here
-    # Return all paths
     def dfs(x, y, path):
         if x == n - 1 and y == n - 1:
             res.append(path)
@@ -1338,7 +1336,6 @@ def findAllPaths(arr):
 
 
 def nQueens(n):
-    # Write your code here
     def solve(r, board, c, d1, d2):
         if r == n:
             res.append(sum(board, []))
