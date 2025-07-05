@@ -2036,11 +2036,11 @@ def BinarySearch(nums: [int], target: int):
 
 
 # Reverse the string
+
 # Problem statement
+
 # Given an array/list 'ARR' of integers and a position ‘M’. You have to reverse the array after that position.
-
 # Example:
-
 # We have an array ARR = {1, 2, 3, 4, 5, 6} and M = 3 , considering 0 
 # based indexing so the subarray {5, 6} will be reversed and our 
 # output array will be {1, 2, 3, 4, 6, 5}.
@@ -2080,12 +2080,11 @@ def BinarySearch(nums: [int], target: int):
 #  1 4 5 6 7 7 6
 #  10 4 5 2 6 3 1 6 3 
 
-
 # Hints:
 # 1. Try to think by creating another array
 # 2. Try to think which elements are beign swapped.
 
-
+# Solutuion
 def reverseArray(arr, m):
     array_of_value = arr[:m+1]
     for i in range (len(arr)):
