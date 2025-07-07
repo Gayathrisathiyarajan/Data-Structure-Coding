@@ -1541,7 +1541,7 @@ def splitArray(arr,k):
                 used[i] = False
         return False
 
-    arr.sort(reverse=True)  # optimization to help early pruning
+    arr.sort(reverse=True) 
     return backtrack(0, k, 0)
     return
 
@@ -2093,6 +2093,4 @@ def reverseArray(arr, m):
             array_of_value.extend(Rev)
             break
     return array_of_value
-
-
 
