@@ -2084,7 +2084,7 @@ def BinarySearch(nums: [int], target: int):
 # 1. Try to think by creating another array
 # 2. Try to think which elements are beign swapped.
 
-# Solutuion
+# Code
 def reverseArray(arr, m):
     array_of_value = arr[:m+1]
     for i in range (len(arr)):
