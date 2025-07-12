@@ -2180,7 +2180,7 @@ def swapNumber(a:list,  b: list) -> None:
 
 # Time Limit : 1 second
 
-
+# Solution
 def firstAndLastPosition(arr, n, k):
     # Write your code here
     first = -1
