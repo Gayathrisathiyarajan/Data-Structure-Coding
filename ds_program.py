@@ -2137,7 +2137,7 @@ def swapNumber(a:list,  b: list) -> None:
 
 
 # Problem Statement -  First and Last Position of an Element In Sorted Array
-# Problem statement
+
 # You have been given a sorted array/list 'arr' consisting of ‘n’ elements. You are also given an integer ‘k’.
 
 # Now, your task is to find the first and last occurrence of ‘k’ in 'arr'.
