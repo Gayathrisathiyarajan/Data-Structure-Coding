@@ -2129,6 +2129,7 @@ def reverseArray(arr, m):
 
 # Time Limit: 1 sec
 
+# Solution
 def swapNumber(a:list,  b: list) -> None:
     # write your code here
     c = a[0]
@@ -2194,5 +2195,4 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
-
 
