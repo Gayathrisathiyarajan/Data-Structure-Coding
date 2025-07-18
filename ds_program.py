@@ -2099,7 +2099,6 @@ def reverseArray(arr, m):
 # You are given two numbers 'a' and 'b' as input.
 
 # You must swap the values of 'a' and 'b'.
-
 # For Example:
 # Input: 
 # 'a' = 8, 'b' = 5
@@ -2140,7 +2139,6 @@ def swapNumber(a:list,  b: list) -> None:
 # Problem Statement -  First and Last Position of an Element In Sorted Array
 
 # You have been given a sorted array/list 'arr' consisting of ‘n’ elements. You are also given an integer ‘k’.
-
 # Now, your task is to find the first and last occurrence of ‘k’ in 'arr'.
 # Note :
 # 1. If ‘k’ is not present in the array, then the first and the last occurrence will be -1. 
@@ -2195,6 +2193,4 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
-
-
 
