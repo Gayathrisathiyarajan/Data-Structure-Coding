@@ -2181,7 +2181,6 @@ def swapNumber(a:list,  b: list) -> None:
 
 # Solution
 def firstAndLastPosition(arr, n, k):
-    # Write your code here
     first = -1
     last = -1
     for i in range(len(arr)):
@@ -2193,6 +2192,4 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
-
-
 
