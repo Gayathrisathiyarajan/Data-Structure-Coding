@@ -2126,8 +2126,6 @@ def reverseArray(arr, m):
 # Constraints:
 # -10^5 <= 'a', 'b' <= 10 ^ 5
 
-# Time Limit: 1 sec
-
 # Solution
 def swapNumber(a:list,  b: list) -> None:
     # write your code here
