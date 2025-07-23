@@ -2175,7 +2175,7 @@ def swapNumber(a:list,  b: list) -> None:
 # 0 <= k <= 10^9
 # 0 <= arr[i] <= 10^9
 
-# Solution
+# Code
 def firstAndLastPosition(arr, n, k):
     first = -1
     last = -1
@@ -2188,4 +2188,5 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
+
 
