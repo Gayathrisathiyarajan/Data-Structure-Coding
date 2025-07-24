@@ -2188,5 +2188,3 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
-
-
