@@ -1736,29 +1736,6 @@ print(closestPair(cordinates, n))
 # 1. The input string may contain the same characters, so there will also be the same permutations.
 
 # 2. The order of permutation does not matter.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# cba
-# Sample Output 1:
-# abc
-# acb
-# bac
-# bca
-# cab
-# cba
-# Explanation for Sample Output 1:
-# All the possible permutations for string "cba" will be "abc", "acb", "bac", "bca", "cab" and "cba".
-# Sample Input 2:
-# xyx
-# Sample Output 2:
-# xyx
-# xxy
-# yxx
-# yxx
-# xyx
-# xxy
-# Explanation for Sample Output 2:
-# All the possible permutations for string "xyx" will be "xyx", "xxy", "yxx", "yxx", "xyx" and "xxy". Here, all three permutations "xyx", "yxx", "xxy" are repeating twice but we need to print all the possible permutations and hence we are printing them twice..
 
 def findPermutations(s):
     def backtrack(path, used):
@@ -1782,26 +1759,6 @@ def findPermutations(s):
 # Problem statement
 # Given N pairs of parentheses, write a function to generate and print all combinations of well-formed parentheses. That is, you need to generate all possible valid sets of parentheses that can be formed with a given number of pairs.
 
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints:
-# 1 <= N <= 10
-
-# Time Limit: 1sec
-# Sample Input 1:
-# 3
-# Sample Output 1:
-# {{{}}}
-# {{}{}}
-# {{}}{}
-# {}{{}}
-# {}{}{}
-# Explanation For Sample Input 1:
-# These are the only five sequences of balanced parentheses formed using 3 pairs of balanced parentheses.
-# Sample Input 2:
-# 2
-# Sample Output 2:
-# {{}}
-# {}{}
 
 def printParantheses(n):
     def Parantheses(current, open_count, close_count, max_pairs):
@@ -1822,48 +1779,6 @@ def printParantheses(n):
 
 # Note:
 # A valid IP address consists of exactly four integers, each integer is between 0 and 255 separated by single dots, and cannot have leading zeros except in the case of zero itself.
-# For example:
-# The following are valid IP addresses:
-# 0.1.24.255
-# 18.5.244.1
-
-# Following are invalid IP addresses:
-# 0.01.24.255  (as  01  contains one leading zero).
-# 18.312.244.1 (as 312 not lies between 0 and 255).
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints:
-# 1 <= T <= 1000
-# 1 <= |S| <= 15
-
-# Where |'S'| denotes the length of string 'S' and 'S' contains only digits from 0 to 9.
-
-# Time Limit: 1 sec
-# Note:
-# You do not need to print anything, it has already been taken care of. Just implement the given function.
-# Sample Input 1 :
-# 2 
-# 2122
-# 23579
-# Sample Output 1 :
-# [“2.1.2.2”]
-# [“2.3.5.79”, “2.3.57.9”, “2.35.7.9”, “23.5.7.9”]
-# Explanation for sample Input 1:
-# For the first test case, there is only one possible IP address that is [2.1.2.2]
-
-# For the second test case, all possible IP addresses are shown below.
-# [2.3.5.79], [2.3.57.9], [2.35.7.9], [23.5.7.9]
-# Sample Input 2 :
-# 2
-# 123
-# 02300
-# Sample Output 2 :
-# []
-# [“0.2.30.0”, “0.23.0.0”]
-# Explanation for sample Input 2:
-# For the first test case, there is no possible IP address. Therefore then answer is []
-
-# For the second test case, there are only 2 possible IP addresses are shown below.
-# [0.2.30.0], [0.23.0.0]
 
 
 def generateIPAddress(s):
