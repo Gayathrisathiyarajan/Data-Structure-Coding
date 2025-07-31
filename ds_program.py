@@ -1599,29 +1599,6 @@ def generateString(N: int) -> List[str]:
 
 # Note: You are not allowed to use any extra space other than the internal stack space used due to recursion.
 
-# Example:
-# Input: [1,2,3,4,5] 
-# Output: [5,4,3,2,1]
-
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1 :
-# 3
-# 2 1 3
-# Sample Output 1 :
-# 3 1 2
-# Explanation to Sample Input 1 :
-# Reverse of a give stack is 3 1 2 where first element becomes last and last becomes first.                   
-# Sample Input 2 :
-# 2
-# 3 2
-# Sample Output 2 :
-# 2 3
-# Constraints :
-# 0 <= N <= 10^3
-# Where 'N' is the number of elements in the given stack.
-
-# Time Limit: 1 sec
-
 def reverseStack(stack: List[int]) -> None:
     # Write your code here.
     if stack:
@@ -1637,32 +1614,6 @@ def reverseStack(stack: List[int]) -> None:
 # Note :
 # Where distance between two points (x1, y1) and (x2, y2) is calculated as [(x1 - x2) ^ 2] + [(y1 - y2) ^ 2].
 # Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 2 <= 'N' <= 10^5
-# -10^5 <= 'x' <= 10^5 
-# -10^5 <= 'y' <= 10^5
-
-# Time Limit: 1 sec
-# Sample Input 1:
-# 5
-# 1 2
-# 2 3
-# 3 4
-# 5 6
-# 2 1
-# Sample Output 1:
-# 2
-# Explanation of Sample Output 1:
-# We have 2 pairs which are probable answers (1, 2) with (2, 3) and (2, 3) with (3, 4). The distance between both of them is equal to 2.
-# Sample Input 2 :
-# 3
-# 0 0
-# -3 -4
-# 6 4
-# Sample Output 2 :
-# 25
-# Explanation of Sample Output 1 :
-# If we choose the pairs (0, 0) and (-3, -4), the distance between them is 3^2 + 4^2 = 25. This is the optimal answer for this test case.
 
 from sys import stdin, setrecursionlimit
 setrecursionlimit(10**7)
