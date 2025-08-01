@@ -1361,24 +1361,6 @@ def nQueens(n):
 # 1 <= |S| <= 10 
 # 2 <= S[i] <=9  
 
-# Where |S| is the length of string 'S" and 'S[i]' represents the element of the string S. 
-
-# Time Limit: 1 sec
-# Sample Input 1:
-# 1 
-# 23
-# Sample Output 1:
-# ad ae af bd be bf cd ce cf
-# Explanation of sample input 1:
-# The letters corresponding to 2 are ‘a’, ‘b’, ‘c’ and corresponding to 3 are ‘d’, ‘e’, ‘f’. All the possible letter combinations for “23” will be "ad","ae","af","bd","be","bf","cd","ce","cf".
-# Sample Input 2:
-# 1
-# 2
-# Sample Output 2:
-# a b c
-# Explanation of sample input 2:
-# The letters corresponding to 2 are ‘a’, ‘b’, ‘c’.
-
 def combinations(s):
     # Write your code here
     if not s:
@@ -1412,34 +1394,6 @@ def combinations(s):
 # 1 <= T <= 10
 # 2 <= N <= 20
 # 0 < Arr[i] <= 10^5
-# Where T is the number of test cases, N is the number of students and Arr[i] is the strength of ith student.
-# Sample Input 1:
-# 3
-# 4
-# 1 2 3 4
-# 3
-# 4 2 1
-# 2
-# 6 8
-# Sample Output 1:
-# 0
-# 1
-# 2
-# Explanation for Sample Input 1:
-# In the 1st test case, the first team contains students with strength {1, 4} and the second team contains students with strength {2, 3}, the absolute difference between the team’s strength is (1+5)-(2+3)=0.
-
-# In the 2nd test case, the first team contains students with strength {1, 2} and the second team contains students with strength {4}, the absolute difference between the team’s strength is (4)-(1+2)=1.
-
-# In the 3rd test case, the first team contains students with strength {6} and the second team contains students with strength {8}, the absolute difference between the team’s strength is (8)-(6)=2.
-# Sample Input 2:
-# 2
-# 3
-# 10 10 10
-# 4
-# 10 1 2 5
-# Sample Output 2:
-# 10
-# 4
 
 def tugOfWar(arr, n):
     # write your code here
@@ -1467,54 +1421,6 @@ def tugOfWar(arr, n):
 
 # A subset of an array "ARR" is another array whose every element is present in array "ARR".
 
-# For example:
-# If ARR = {1, 2, 3, 4}, then array {3,4} is a subset of "ARR" because both 3 and 4 are also elements of "ARR".
-# For example:
-
-# Consider array ARR = {3, 5, 2, 4, 4} and K = 2, i.e. you have to divide "ARR" into 2 subsets with equal sum. The division will be {4, 5} and {2, 3, 4} with sum 9.
-# Note:
-
-# Every element of the array must occupy only one subset.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# 3 
-# 5 2
-# 3 5 2 4 4
-# 9 6 
-# 1 9 6 8 6 9 9 9 9
-# 7 4
-# 4 4 4 1 1 1 1
-# Sample Output 1:
-# TRUE
-# FALSE
-# TRUE
-# Explanation For Sample Input 1:
-# For first case, 
-# Array can be divided into 2 subsets as {2, 3, 4} and {4, 5} with sum 9.
-
-# For the second case,
-# Array can not be divided into 6 subsets with equal sum.
-
-# For the third case, 
-# Array can be divided into 4 subsets as {4}, {4}, {4} and {1, 1, 1, 1} with sum 4.
-# Sample Input 2:
-# 5
-# 10 5
-# 1 2 3 4 5 6 7 8 9 10
-# 7 7
-# 7 7 7 7 7 7 7
-# 7 3
-# 1 2 3 4 5 6 7
-# 5 2
-# 3 5 7 11 13
-# 3 5
-# 1 2 3
-# Sample Output 2:
-# TRUE
-# TRUE
-# FALSE
-# FALSE
-# FALSE
 
 def splitArray(arr,k):
     
@@ -1551,30 +1457,6 @@ def splitArray(arr,k):
 # You have been given an integer 'N'. Your task is to generate and return all binary strings of length 'N' such that there are no consecutive 1's in the string.
 
 # A binary string is that string which contains only ‘0’ and ‘1’.
-
-# For Example:
-# Let ‘N'=3, hence the length of the binary string would be 3. 
-
-# We can have the following binary strings with no consecutive 1s:
-# 000 001 010 100 101 
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# 4
-# Sample Output 1:
-# 0000 0001 0010 0100 0101 1000 1001 1010 
-# Explanation of sample input 1:
-# For N = 4 we get the following Strings:
-
-# 0000 0001 0010 0100 0101 1000 1001 1010 
-
-# Note that none of the strings has consecutive 1s. Also, note that they are in a lexicographically increasing order.
-# Sample Input 2:
-# 2
-# Sample Output 2:
-# 00 01 10
-# Constraints:
-# 1 <= 'N' <= 20
-# Time limit: 1 second
 
 from typing import List
 
