@@ -1229,50 +1229,6 @@ def reachDestination(sx,sy,dx,dy):
 
 # If you are currently at cell (x,y) then you can move to (x+1,y)(denoted by ‘D’), (x-1,y)(denoted by ‘U’), (x,y+1)(denoted by ‘R’), (x,y-1)(denoted by ‘L’) in one move. You cannot move out of the grid.
 
-# Example :
-
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 5
-# 1 <= N <= 5
-# 0 <= ARR[i][j] <= 1
-
-# Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of rows and columns of the given matrix, and ARR[i] denotes the value of the cell (i,j) in the given matrix.
-
-# Time Limit: 1 sec
-# Sample Input 1 :
-# 2
-# 2
-# 1 1
-# 1 1
-# 2
-# 1 0
-# 1 1
-# Sample Output 1 :
-# DR RD
-# DR
-# Explanation of Sample Input 1 :
-# In the first test case, there are two paths from (0,0) to (1,1). The first path is (0,0)->(1,0)->(1,1) and the second path is (0,0)->(0,1)->(1,1)
-
-# In the second test case, there is only one path since the cell at (0,1) is blocked. The path is (0,0)->(1,0)->(1,1).
-# Sample Input 2 :
-# 2
-# 3
-# 1 0 1
-# 1 0 0
-# 1 1 1
-# 3
-# 1 1 1
-# 1 0 1
-# 1 1 1
-# Sample Output 2 :
-# DDRR
-# DDRR RRDD
-# Explanation of Sample Input 2 :
-# In the first test case, there is only one path from (0,0) to (2,2). The path is (0,0)->(1,0)->(2,0)->(2,1)->(2,2).
-
-# In the second test case, there are two paths from (0,0) to (2,2). The first path is (0,0)->(1,0)->(2,0)->(2,1)->(2,2). and the second path is (0,0)->(0,1)->(0,2)->(1,2)->(2,2).
-
 def findAllPaths(arr):
     def dfs(x, y, path):
         if x == n - 1 and y == n - 1:
@@ -1303,37 +1259,6 @@ def findAllPaths(arr):
 # 2. They share a column. 
 # 3. They share a diagonal. 
 # Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# 1
-# 4   
-# Sample Output 1:
-# 0 0 1 0 1 0 0 0 0 0 0 1 0 1 0 0
-# 0 1 0 0 0 0 0 1 1 0 0 0 0 0 1 0 
-# Explanation for Sample Input 1:
-# The 4 queens can be placed in two ways in a 4*4 chessboard. Both the configurations are shown in the below figure. 
-
-# The chessboard matrix for the first configuration looks as follows:-
-# 0 0 1 0
-# 1 0 0 0
-# 0 0 0 1
-# 0 1 0 0
-# Queen contained cell is depicted by 1. As we can see, No queen is in the same row, column or diagonal of the other queens. Hence this is a valid configuration.
-
-# Similarly, the chessboard matrix for the second configuration looks as follows:-
-# 0 1 0 0
-# 0 0 0 1
-# 1 0 0 0
-# 0 0 1 0
-# Queen contained cell is depicted by 1. As we can see, No queen is in the same row, column or diagonal of the other queens. Hence this is also a valid configuration.
-
-# These are the only two valid configurations for 4-Queens. 
-# Sample Input 2:
-# 1
-# 3
-# Sample Output 2:
-# Explanation of Sample Input 2:
-# Since no possible configuration exists for 3 Queen's, the output remains empty. 
-
 
 def nQueens(n):
     def solve(r, board, c, d1, d2):
