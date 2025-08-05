@@ -876,29 +876,6 @@ def kthChildNthGeneration(n, k):
 # Note :
 # As the answer can be large enough, return the answer modulo 10^9 + 7.
 
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 10
-# 1 <= N <= 10^8
-# 0 <= A <= 50 
-# 0 <= R <= 100
-
-# Time limit: 1 second
-# Sample input 1 :
-# 1
-# 5 3 2 
-# Sample output 1 :
-# 48
-# Explanation :
-# For N=5, A=3, and R=2. The GP series will be 3, 6, 12, 24, 48, and so on. Thus, the 5th term will be 48.  
-# Sample input 2 :
-# 2
-# 4 1 2
-# 6 2 1 
-# Sample output 2 :
-# 8
-# 2
-
 import sys
 from sys import stdin
 
@@ -918,35 +895,6 @@ while(t > 0):
 # Problem statement 4
 # Problem statement
 # You have given two positive integers N and K. Your task is to print a series of numbers i.e subtract K from N until it becomes 0 or negative then add K until it becomes N. You need to do this task without using any loop.
-
-# For Example:
-# For  N = 5 , K = 2 
-# Series = [ 5, 3, 1, -1, 1, 3, 5]
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 100   
-# 1 <= N <= 3000 
-# 1 <= K <= N 
-
-# Time Limit: 1sec
-# Sample Input 1 :
-# 2 
-# 3 2
-# 5 4
-# Sample Output 1 :
-# 3 1 -1 1 3
-# 5 1 -3 1 5
-# Explanation For Sample 1:
-# For the 1st test case:
-# The numbers in the sequence are 3, 3 - 2, 3 - 2 - 2, 3 - 2 - 2 + 2, 3 - 2 - 2 + 2 + 2, which is the same as 3, 1, -1, 1, 3. 
-
-# For the 2nd test case:
-# The numbers in the sequence are 5, 5 - 4, 5 - 4 - 4, 5 - 4 - 4 + 4, 5 - 4 - 4 + 4 + 4, which is the same as 5, 1, -3, 1, 5. 
-# Sample Input 2 :
-# 1
-# 4 2
-# Sample Output 2 :
-# 4 2 0 2 4
 
 def printSeriesHelper(current, n, k, down, result):
     result.append(current)  
