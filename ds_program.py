@@ -773,36 +773,6 @@ print_numbers(1)
 # 3. You can only move the disk at the top of any rod.    
 # Note :
 # You may assume that initially, the size of the ‘i’th disk from the top of the stack is equal to ‘i’, i.e. the disk at the bottom has size ‘N’, the disk above that has size ‘N - 1’, and so on. The disk at the top has size 1.
-# Example :
-
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 5
-# 1 <= N <= 12
-
-# Where ‘T’ denotes the number of test cases, ‘N’ denotes the number of disks.
-
-# Time Limit: 1 sec
-# Sample Input 1 :
-# 2
-# 1
-# 2
-# Sample Output 1 :
-# 1
-# 1
-# Explanation of Sample Input 1 :
-# In the first test case, 
-# you can move the only disk to either rod 2 or rod 3. The matrix to be returned should be either { { 1, 2 } } or { {1, 3 } }.
-
-# In the second test case, 
-# you can move the topmost disk from rod 1 to rod 2. Then move the remaining disk from rod1 to rod 3. Now move the disk in rod 2 to rod 3. . One of the correct ways to return the output is { { 1, 2 }, { 1, 3 }, { 2, 3 } }.  
-# Sample Input 2 :
-# 1
-# 3
-# Sample Output 2 :
-# 1
-# Explanation of Sample Input 2 :
-# One of the correct matrices is { { 1, 2 }, { 1, 3 }, { 2, 3 }, { 1, 2 }, { 3, 1 }, { 3, 2 }, { 1, 2 } }.
 
 def towerOfHanoi(n):
     # Write your code here
@@ -824,33 +794,6 @@ def towerOfHanoi(n):
 # Aakash is a member of Ninja club. He has a weird family structure. Every male member (M) gives birth to a male child first and then a female child, whereas every female (F) member gives birth to a female child first and then to a male child. Aakash analyses this pattern and wants to know what will be the Kth child in his Nth generation. Can you help him?
 
 # A sample generation tree is shown, where ‘M’ denotes the male member and ‘F’ denotes the female member. 
-
-# Note
-# The generation tree starts with a male member i.e. Aakash. 
-# Every member has exactly two children. 
-# The given N and K will always be valid. 
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# 2
-# 2 2 
-# 3 4  
-# Sample Output 1:
-# Female
-# Male
-# Explanation for Sample Input 1:
-# Test Case 1:  2nd child of the 2nd generation is shown in green colour. 
-
-# Test Case 2:  4th child of the 3rd generation is shown in green colour. 
-
-# Sample Input 2:
-# 3
-# 5 1 
-# 3 1
-# 4 4  
-# Sample Output 2:
-# Male
-# Male
-# Male 
 
 def checkGender(n,k):
     # Write your code here
