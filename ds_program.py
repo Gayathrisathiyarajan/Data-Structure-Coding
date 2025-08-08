@@ -471,38 +471,6 @@ if not stack:
 # Note :
 # A pair of brackets is said to be redundant when a subexpression is surrounded by needless/ useless brackets.
 
-# For Example :
-# ((a+b)) has a pair of redundant brackets. The pair of brackets on the first and last index is needless. 
-# While (a + (b*c)) does not have any pair of redundant brackets. 
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 50
-# 3 <= |S| <= 10^4
-
-# Time Limit: 1 sec
-# Sample Input 1 :
-# 2
-# (a+b)
-# (a+c*b)+(c))
-# Sample Output 1 :
-# No
-# Yes
-# Explanation of Sample Input 1 :
-# In the first test case, there are no redundant brackets. Hence, the output is “No”. 
-
-# In the second test case, the brackets around the alphabet ‘c’( index 8 and index 10) are redundant. Hence the output is “Yes”.
-# Sample Input 2 :
-# 2
-# (a*b+(c/d))
-# ((a/b))
-# Sample Output 2 :
-# No
-# Yes
-# Explanation of Sample Input 2 :
-# In the first test case, there are no redundant brackets. Hence, the output is “No”. 
-
-# In the second test case, the brackets around the subexpression “(a+b)” ( index 0 and index 6) are redundant. Hence the output is “Yes”.
-
 def findRedundantBrackets(s: str) -> bool:
     stack = []
     for ch in s:
@@ -526,30 +494,6 @@ def findRedundantBrackets(s: str) -> bool:
 # You're given a string 'S' consisting of "{", "}", "(", ")", "[" and "]" .
 
 # Return true if the given string 'S' is balanced, else return false.
-
-# For example:
-# 'S' = "{}()".
-
-# There is always an opening brace before a closing brace i.e. '{' before '}', '(' before ').
-# So the 'S' is Balanced.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1 :
-# [()]{}{[()()]()}
-# Sample Output 1 :
-# Balanced
-# Explanation Of the Sample Input 1 :
-# There is always an opening brace before a closing brace i.e. '{' before '}', '(' before '), '[' before ']'.
-# So the 'S' is Balanced.
-# Sample Input 2 :
-# [[}[
-# Sample Output 2 :
-# Not Balanced
-# Constraints:
-# 1 <= 'N' <= 10^5
-
-# Where 'N' is the length of the input string 'S'.
-# Time Limit: 1 sec
-
 
 def isValidParenthesis(s: str) -> bool:
     # Write your code here
