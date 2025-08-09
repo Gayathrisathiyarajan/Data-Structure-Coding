@@ -369,29 +369,7 @@ def searchInLinkedList(head, k):
 # Note:
 # 1. If the list is empty, the function immediately returns None because there is no middle node to find.
 # 2. If the list has only one node, then the only node in the list is trivially the middle node, and the function returns that node.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1 :
-# 5
-# 1 2 3 4 5
-# Sample Output 1 :
-# 3 4 5
-# Explanation Of Sample Input 1 :
 
-# We can clearly see that there are 5 elements in the linked list therefore the middle node is the node with value '3'.
-# Sample Input 2 :
-# 6
-# 1 2 3 4 5 6
-# Sample Output 2 :
-# 4 5 6
-# Explanation Of Sample Input 2 :
-
-# We can clearly see that there are 6 elements in the linked list and the middle nodes are  nodes with values 3 and 4 hence we return a second middle node having value '4'.
-# Constraints :
-# 1 <= 'N' <= 10^4
-# 0 <= 'data' <= 10^3 
-
-# Where 'N' is the length of the linked list.
-# Time Limit: 1 sec
 
 def findMiddle(head):
     # Write your code here
@@ -413,24 +391,6 @@ def findMiddle(head):
 # Note :
 # You do not need to print anything, just return the head of the reversed linked list. 
 # Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= 'N' <= 10^4
-# 0 <= 'data' <= 10^9
-
-# Where 'N' is the number of nodes in the linked list.
-
-# Time Limit: 1 sec
-# Sample Input 1 :
-# 1 2 4 -1
-# Sample Output 1 :
-# 4 2 1 -1
-# Explanation for Sample Input 1 :
-# 1->2->4 is the initial linked list. If we reverse this, we get 4->2->1.
-# Sample Input 2 :
-# 1
-# 1 1 1 -1
-# Sample Output 2 :
-# 1 1 1 -1
 
 def reverseLinkedList(head):
     # write your code here
