@@ -271,39 +271,6 @@ def convertString(str):
 
 # Note :
 # You do not need to print anything, it has already been taken care of. Just implement the given function.
-# Example:
-# Let ‘NUM1’ be: “5”
-# Let ‘NUM2’ be: “21”
-# The sum of both numbers will be: “26”.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints :
-# 1 <= T <= 10
-# 1 <= |NUM1|, |NUM2| <= 10^5
-
-# NUM1 and NUM2 don’t have leading zeroes.
-# Where |NUM1| and |NUM2| denote the length of the respective strings.
-
-# Time limit: 1 sec
-# Sample Input 1 :
-# 2
-# 5 21
-# 10 9
-# Sample output 1 :
-# 26
-# 19
-# Explanation For Sample Output 1 :
-# For the first test case:
-# The sum of both numbers will be: “26”.
-
-# For the second test case:
-# The sum of both numbers will be: “19”.
-# Sample Input 2 :
-# 2
-# 9 9
-# 21 10
-# Sample output 2 :
-# 18
-# 31
 
 def stringSum(num1: str, num2: str) -> str:
     # Write your code here.\
@@ -318,39 +285,8 @@ def stringSum(num1: str, num2: str) -> str:
 # Problem statement 1
 
 # You are given a Singly Linked List of integers with a head pointer. Every node of the Linked List has a value written on it.
-
 # A sample Linked List:
-
 # Now you have been given an integer value, 'K'. Your task is to check whether a node with a value equal to 'K' exists in the given linked list. Return 1 if node exists else return 0.
-
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample Input 1:
-# 3 6 2 7 9 -1
-# 2
-# Sample Output 1:
-# 1
-# Explanation for Sample Input 1:
-# As value 2 exists in the given linked list. So we will return 1 in this case.
-
-# Sample Input 2:
-# 1 2 3 7 -1
-# 7
-# Sample Output 2:
-# 1
-# Explanation for Sample Input 2:
-# As the value 7 exists in the Linked List, our answer is 1.
-
-# Expected Time Complexity:
-# Try solving this in O(L).
-
-# Constraints:
-# 1 <= 'L' <= 10^5
-# 1 <= 'data' <= 10^9 and 'data' != -1
-# 1 <= 'K' <= 10^9   
-
-# Where 'L' represents the total number of nodes in the Linked List, 'data' represents the value at each node, and 'K' is the given integer.
-
-# Time Limit: 1 sec.
 
 def searchInLinkedList(head, k):
     # Your code goes here.
