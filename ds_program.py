@@ -108,36 +108,6 @@ print(total)
 # Problem statement
 # Given an array ‘arr’ of size ‘n’ find the largest element in the array.
 
-# Example:
-
-# Input: 'n' = 5, 'arr' = [1, 2, 3, 4, 5]
-
-# Output: 5
-
-# Explanation: From the array {1, 2, 3, 4, 5}, the largest element is 5.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Sample input 1:
-# 6
-# 4 7 8 6 7 6 
-# Sample output 1:
-# 8
-# Explanation of sample input 1:
-# The answer is 8.
-# From {4 7 8 6 7 6}, 8 is the largest element.
-# Sample input 2:
-# 8
-# 5 9 3 4 8 4 3 10 
-# Sample output 2:
-# 10
-# Expected Time Complexity:
-# O(n), Where ‘n’ is the size of an input array ‘arr’.
-# Constraints :
-# 1 <= 'n' <= 10^5
-# 1 <= 'arr[i]' <= 10^9
-
-# Time Limit: 1 sec
-
-
 from sys import *
 from collections import *
 from math import *
@@ -207,48 +177,6 @@ print(data.split(","))
 
 # Problem statement
 # You are given a string 'STR'. You have to convert the first alphabet of each word in a string to UPPER CASE.
-
-# For example:
-
-# If the given string 'STR' = ”I am a student of the third year” so you have to transform this string to ”I Am A Student Of The Third Year"
-# Note:
-
-# 'STR' will contains only space and alphabets both uppercase and lowercase. The words will be separated by space.
-# Detailed explanation ( Input/output format, Notes, Images )
-# Constraints:
-# 1 <= 'T' <= 10
-# 1 <= |STR| <= 10^5
-
-# Where |STR| denotes the length of the string.
-
-# Time Limit: 1 sec
-# Sample Input 1 :
-# 3
-# I love programming
-# they are playing cricket
-# good to see you
-# Sample Output 1 :
-# I Love Programming
-# They Are Playing Cricket
-# Good To See You
-# Explanation of The Sample Input 1:
-# For the first test case:
-# Given string is “I love programming” we will convert every letter after space to uppercase to give the output as ”I Love Programming”.
-
-# For the second test case:
-# Given string is “they are playing cricket” we will convert every letter after space to uppercase to give the output as  “They Are Playing Cricket”. 
-
-# For the third test case:
-# Given string is “good to see you” we will convert every letter after space to uppercase to give the output as “Good To See You”. 
-# Sample Input 2 :
-# 3
-# why you are confused
-# Its a good day to be here
-# go and do your work
-# Sample Output 2 :
-#  Why You Are Confused
-#  Its A Good Day to Be Here
-#  Go And Do Your Work
 
 def convertString(str):
     # Write your code here
