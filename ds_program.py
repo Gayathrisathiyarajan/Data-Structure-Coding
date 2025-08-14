@@ -449,7 +449,6 @@ def towerOfHanoi(n):
 # Problem Statement 2
 
 # Aakash is a member of Ninja club. He has a weird family structure. Every male member (M) gives birth to a male child first and then a female child, whereas every female (F) member gives birth to a female child first and then to a male child. Aakash analyses this pattern and wants to know what will be the Kth child in his Nth generation. Can you help him?
-
 # A sample generation tree is shown, where ‘M’ denotes the male member and ‘F’ denotes the female member. 
 
 def checkGender(n,k):
@@ -470,7 +469,6 @@ def kthChildNthGeneration(n, k):
 # Problem statement 3
 # Problem statement
 # You are given the first term (A), the common ratio (R) and an integer N. Your task is to find the Nth term of the GP series.
-
 # The general form of a GP(Geometric Progression) series is A, A(R), A(R^2), A*(R^3) and so on where A is the first term of GP series
 
 # Note :
@@ -516,12 +514,10 @@ def printSeries(n, k):
 # Problem statement 5
 # Problem statement
 # Given an integer array 'ARR' of size 'N' and an integer 'K', return all the subsets of 'ARR' which sum to 'K'.
-
 # Subset of an array 'ARR' is a tuple that can be obtained from 'ARR' by removing some (possibly all) elements of 'ARR'.
 
 # Note :
 # The order of subsets is not important. 
-
 # The order of elements in a particular subset should be in increasing order of the index.
 # Detailed explanation ( Input/output format, Notes, Images )
 
