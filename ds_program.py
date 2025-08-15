@@ -1128,3 +1128,13 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
+
+# 1.return character  length greater then 4
+# 2.first letter of the character should not be vowels
+input = ["apple","fig","orange"]
+a = ["apple","fig","orange", "gayathri"]
+b = "aeiou"
+for i in a:
+    if len(i) > 4 and i[0] not in b:
+        # if i[0] not in b:
+            print(i)
