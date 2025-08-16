@@ -1138,3 +1138,11 @@ for i in a:
     if len(i) > 4 and i[0] not in b:
         # if i[0] not in b:
             print(i)
+
+
+# Factorial
+a = 6
+b = 1
+for i in range(1, a+1):
+    b = i * b
+print(b)
