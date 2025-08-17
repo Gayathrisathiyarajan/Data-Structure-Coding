@@ -1140,7 +1140,7 @@ for i in a:
             print(i)
 
 
-# Factorial
+# Factorial Program
 a = 6
 b = 1
 for i in range(1, a+1):
