@@ -1114,7 +1114,6 @@ def swapNumber(a:list,  b: list) -> None:
 # 1. If ‘k’ is not present in the array, then the first and the last occurrence will be -1. 
 # 2. 'arr' may contain duplicate elements.
 
-
 # Code
 def firstAndLastPosition(arr, n, k):
     first = -1
@@ -1128,6 +1127,7 @@ def firstAndLastPosition(arr, n, k):
         return("-1 -1")
     else:
         return(first, last)
+
 
 # 1.return character  length greater then 4
 # 2.first letter of the character should not be vowels
